@@ -15,7 +15,7 @@ import java.util.List;
 public class JsonUtils {
 
     /** Tag for the log messages */
-    public static final String LOG_TAG = JsonUtils.class.getSimpleName();
+    private static final String LOG_TAG = JsonUtils.class.getSimpleName();
 
     private static Sandwich sandwich;
 

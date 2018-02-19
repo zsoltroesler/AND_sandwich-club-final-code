@@ -20,15 +20,7 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    private TextView mainName;
-    private TextView alsoKnownAs;
-    private TextView placeOfOrigin;
-    private TextView description;
-    private TextView ingredients;
-    private ImageView image;
-
     private Sandwich sandwich;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +72,10 @@ public class DetailActivity extends AppCompatActivity {
     // Helper method to update the UI
     private void populateUI() {
 
-        mainName = (TextView) findViewById(R.id.name_tv);
+        TextView mainName = findViewById(R.id.name_tv);
         mainName.setText(sandwich.getMainName());
 
-        alsoKnownAs = (TextView) findViewById(R.id.also_known_tv);
+        TextView alsoKnownAs = findViewById(R.id.also_known_tv);
         List<String> otherNamesList = sandwich.getAlsoKnownAs();
         StringBuilder otherNamesString = new StringBuilder();
         if (otherNamesList.isEmpty()){
@@ -96,13 +88,13 @@ public class DetailActivity extends AppCompatActivity {
         }
         alsoKnownAs.setText(otherNamesString);
 
-        placeOfOrigin = (TextView) findViewById(R.id.place_of_origin_tv);
+        TextView placeOfOrigin = findViewById(R.id.place_of_origin_tv);
         placeOfOrigin.setText(sandwich.getPlaceOfOrigin());
 
-        description = (TextView) findViewById(R.id.description_tv);
+        TextView description = findViewById(R.id.description_tv);
         description.setText(sandwich.getDescription());
 
-        ingredients = (TextView) findViewById(R.id.ingredients_tv);
+        TextView ingredients = findViewById(R.id.ingredients_tv);
         List<String> ingredientsList = sandwich.getIngredients();
         StringBuilder ingredientsString = new StringBuilder();
         if (ingredientsList.isEmpty()){
@@ -115,7 +107,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         ingredients.setText(ingredientsString);
 
-        image = (ImageView) findViewById(R.id.image_iv);
+        ImageView image = findViewById(R.id.image_iv);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(image);
